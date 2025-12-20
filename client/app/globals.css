@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --bg: #f3f4f6;                /* gray-100 */
+    --panel: #ffffff;            /* white */
+    --text-primary: #1f1f1f;     /* almost-black */
+    --text-secondary: #6b7280;   /* gray-500 */
+    --accent: #4b5563;           /* charcoal */
+    --accent-hover: #374151;     /* darker gray */
+  }
+
+  .dark {
+    /* Dark Mode */
+    --bg: #0e0e0e;               /* very dark */
+    --panel: #1a1a1a;            /* near black */
+    --text-primary: #e5e5e5;     /* light gray */
+    --text-secondary: #9ca3af;   /* gray-400 */
+    --accent: #6b7280;           /* gray-500 */
+    --accent-hover: #9ca3af;     /* gray-400 */
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+  }
+}
