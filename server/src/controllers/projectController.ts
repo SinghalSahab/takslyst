@@ -7,12 +7,17 @@ export const getProjects = async (
   res: Response
 ): Promise<void> => {
   try {
+    console.log("⏳ Before Prisma");
     const projects = await prisma.project.findMany();
+    console.log("✅ After Prisma");
     res.json(projects);
   } catch (error: any) {
-    res
-      .status(500)
-      .json({ message: `Error retrieving projects: ${error.message}` });
+    res.status(500).json({
+      name: error.name,
+      code: error.code,
+      message: error.message,
+      meta: error.meta,
+    });
   }
 };
 

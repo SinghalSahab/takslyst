@@ -35,6 +35,7 @@ app.use("/search", searchRoutes);
 app.use("/users", userRoutes);
 app.use("/teams", teamRoutes);
 
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

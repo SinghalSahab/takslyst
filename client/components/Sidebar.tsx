@@ -24,23 +24,28 @@ import {
   } from "lucide-react";
 import { useAppDispatch, useAppSelector } from '@/app/redux';
 import { setIsSidebarCollapsed } from '@/state';
+import { useGetProjectsQuery } from '@/state/api';
 
 const Sidebar = () => {
     const [showProjects, setShowProjects] = useState(true);
     const [showPriorities, setShowPriorities] = useState(true);
 
+    const {data:projects} = useGetProjectsQuery();
+   console.log("Projects in sidebar:", projects);
     const dispatch = useAppDispatch();
     const isSidebarCollapsed = useAppSelector(
       (state) => state.global.isSidebarCollapsed,
     );
   
   return (
-    <div className={`fixed z-40 flex h-[100%] flex-col justify-between overflow-y-auto bg-[#ffffff] shadow-xl transition-all duration-300 dark:bg-[#111111] ${isSidebarCollapsed ? "w-0 hidden" : "w-64"}`}>
+    <div className={`fixed flex flex-col h-[100%] justify-between shadow-xl
+    transition-all duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white
+    ${isSidebarCollapsed ? "w-0 hidden" : "w-64"}`}>
        <div className='flex h-[100%] w-full flex-col justify-start'>
         {/*top logo*/}
-        <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-[#ffffff] px-6 pt-3 dark:bg-[#111111]">
-          <div className="text-xl font-bold text-[#1f2937] dark:text-[#f3f4f6] uppercase">
-            tasklyst
+        <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-3 dark:bg-black">
+          <div className="text-xl font-bold text-gray-800 dark:text-white">
+            TASKLYST
           </div>
           {isSidebarCollapsed ? null : (
             <button
@@ -56,7 +61,7 @@ const Sidebar = () => {
         </div>
          
          {/* TEAM */}
-         <div className="flex items-center gap-5 border-y-[1.5px] border-[#e5e7eb] px-4 py-1 dark:border-[#2d2d2d]">
+         <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-gray-700">
            <Image 
            src="/logo.png"
            alt="Logo"
@@ -64,12 +69,12 @@ const Sidebar = () => {
            height={40}
            />
            <div>
-              <h3 className="text-md font-bold tracking-wide text-[#1f2937] dark:text-[#d1d5db]">
+              <h3 className="text-md font-bold tracking-wide dark:text-gray-200">
                 Prakhar's TEAM
               </h3>
               <div className="mt-1 flex items-start gap-2">
-                 <LockIcon className="mt-[0.1rem] h-3 w-3 text-[#6b7280] dark:text-[#9ca3af]" />
-                 <p className="text-xs text-[#6b7280] dark:text-[#9ca3af]">Private</p>
+                 <LockIcon className="mt-[0.1rem] h-3 w-3 text-gray-500 dark:text-gray-400" />
+                 <p className="text-xs text-gray-500">Private</p>
               </div>
            </div>
          </div>
@@ -85,7 +90,7 @@ const Sidebar = () => {
 
         <button
           onClick={() => setShowProjects((prev) => !prev)}
-          className="flex w-full items-center justify-between px-8 py-3 text-gray-600 dark:text-gray-300"
+          className="flex w-full items-center justify-between px-8 py-3 text-gray-500 dark:text-gray-300"
         >
           <span className="">Projects</span>
           {showProjects ? (
@@ -95,10 +100,22 @@ const Sidebar = () => {
           )}
         </button>
 
+        {showProjects && (
+          <>
+            {projects?.map((project) => (
+              <SidebarLink
+                key={project.id}
+                icon={Briefcase}
+                label={project.name}
+                href={`/projects/${project.id}`}
+              />
+            ))}
+          </>
+        )}
         {/* projects */}
         <button
           onClick={() => setShowPriorities((prev) => !prev)}
-          className="flex w-full items-center justify-between px-8 py-3 text-gray-600 dark:text-gray-300"
+          className="flex w-full items-center justify-between px-8 py-3 text-gray-500 dark:text-gray-300"
         >
           <span className="">Priority</span>
           {showPriorities ? (

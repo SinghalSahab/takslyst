@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -6,7 +6,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        card:{
+          dark:'#101010',
+        } 
+      },
+    },
   },
   plugins: [],
 }
