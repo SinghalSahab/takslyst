@@ -15,7 +15,7 @@ import teamRoutes from './routes/teamRoutes.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = Number(process.env.PORT) || 3001;
 
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
@@ -36,6 +36,6 @@ app.use("/users", userRoutes);
 app.use("/teams", teamRoutes);
 
 
-app.listen(port, () => {
+app.listen(port,"0.0.0.0", () => {
     console.log(`Server is running on port ${port}`);
 });
