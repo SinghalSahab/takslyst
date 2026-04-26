@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { useGetProjectsQuery } from "@/state/api";
 import { DisplayOption, Gantt, ViewMode } from "gantt-task-react";
 import "gantt-task-react/dist/index.css";
+import "./timeline.css";
 import React, { useMemo, useState } from "react";
 
 
@@ -57,7 +58,7 @@ const Timeline = () => {
         <div className="relative inline-block w-64">
           <select
             aria-label="Select view mode"
-            className="focus:shadow-outline block w-full appearance-none rounded border border-zinc-400 bg-white px-4 py-2 pr-8 leading-tight shadow hover:border-zinc-500 focus:outline-none dark:border-zinc-700 dark:bg-[#101010] dark:text-zinc-200"
+            className="focus:shadow-outline block w-full appearance-none rounded border border-zinc-700 bg-[#1a1a1a] px-4 py-2 pr-8 leading-tight text-zinc-200 shadow hover:border-zinc-500 focus:outline-none"
             value={displayOptions.viewMode}
             onChange={handleViewModeChange}
           >
@@ -68,16 +69,16 @@ const Timeline = () => {
         </div>
       </header>
 
-      <div className="overflow-hidden rounded-md bg-white shadow dark:bg-[#101010] dark:text-zinc-200">
+      <div className="overflow-hidden rounded-md bg-[#101010] shadow border border-[#262626] text-zinc-200">
         <div className="timeline">
           <Gantt
             tasks={ganttTasks}
             {...displayOptions}
             columnWidth={displayOptions.viewMode === ViewMode.Month ? 150 : 100}
             listCellWidth="100px"
-            projectBackgroundColor={isDarkMode ? "#101214" : "#1f2937"}
-            projectProgressColor={isDarkMode ? "#1f2937" : "#aeb8c2"}
-            projectProgressSelectedColor={isDarkMode ? "#000" : "#9ba1a6"} 
+            projectBackgroundColor="#1f2937"
+            projectProgressColor="#4b6584"
+            projectProgressSelectedColor="#2d3a4a"
           />
         </div>
         

@@ -1,0 +1,132 @@
+/* ────────────────────────────────────────────────────────────
+   Override gantt-task-react white/light internals for dark UI
+   Class names sourced directly from gantt-task-react/dist/index.css
+   ──────────────────────────────────────────────────────────── */
+
+/* ── Task list (left panel) ── */
+
+/* Outer table wrapper borders */
+._3_ygE {
+  border-bottom-color: #262626 !important;
+  border-top-color: #262626 !important;
+  border-left-color: #262626 !important;
+}
+
+/* Column separator */
+._2eZzQ {
+  border-right-color: #262626 !important;
+}
+
+/* Header row border */
+._3ZbQT {
+  border-bottom-color: #262626 !important;
+  border-left-color: #262626 !important;
+}
+
+/* Every data row */
+._34SS0 {
+  background-color: #101010 !important;
+  color: #d4d4d8 !important;
+}
+
+/* Alternating (even) row — the light-gray stripe */
+._34SS0:nth-of-type(even) {
+  background-color: #161616 !important;
+}
+
+/* Cell text */
+._3lLk3 {
+  color: #d4d4d8 !important;
+}
+
+/* ── Header / calendar bar ── */
+
+/* Month label text (svg fill) */
+._9w8d5 {
+  fill: #a3a3a3 !important;
+}
+
+/* Day / week label text (svg fill) */
+._2q1Kt {
+  fill: #9ca3af !important;
+}
+
+/* Shorter date labels in header */
+._2QjE6 {
+  color: #9ca3af !important;
+}
+._2TfEi {
+  color: #9ca3af !important;
+}
+
+/* ── SVG grid (right panel) ── */
+
+/* Even grid row fill — the white/light-gray bands across the chart */
+._2dZTy {
+  fill: #101010 !important;
+}
+._2dZTy:nth-child(even) {
+  fill: #161616 !important;
+}
+
+/* Vertical grid lines */
+._3rUKi {
+  stroke: #2a2a2a !important;
+}
+
+/* Today line */
+._RuwuK {
+  stroke: #3a3a3a !important;
+}
+
+/* Row separator lines */
+._1rLuZ {
+  stroke: #2a2a2a !important;
+}
+
+/* ── Task bars ── */
+
+/* Progress text on bar */
+._3zRJQ {
+  fill: #e5e5e5 !important;
+}
+
+/* Task name label next to bar */
+._3KcaM {
+  fill: #d4d4d8 !important;
+}
+
+/* Milestone diamond */
+._35nLX {
+  fill: #1a1a1a !important;
+  stroke: #4b5563 !important;
+}
+
+/* ── Tooltip ── */
+._3T42e {
+  background: #1a1a1a !important;
+  color: #e5e5e5 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid #333333 !important;
+  border-radius: 6px !important;
+}
+
+._29NTg {
+  color: #a3a3a3 !important;
+}
+
+/* ── Scrollbars ── */
+.timeline ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.timeline ::-webkit-scrollbar-track {
+  background: #101010;
+}
+.timeline ::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+.timeline ::-webkit-scrollbar-corner {
+  background: #101010;
+}
