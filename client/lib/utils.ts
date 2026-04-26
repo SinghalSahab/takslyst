@@ -19,6 +19,10 @@ export const dataGridSxStyles = (isDarkMode: boolean) => {
       borderColor: "#262626",
     },
 
+    "& .MuiDataGrid-virtualScroller": {
+      backgroundColor: "#101010",
+    },
+
     "& .MuiDataGrid-row": {
       backgroundColor: "#101010",
       borderBottom: "1px solid #262626",

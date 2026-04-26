@@ -78,26 +78,22 @@ const HomePage = () => {
     count: statusCount[key],
   }));
 
-  const chartColors = isDarkMode
-    ? {
-        bar: "#8884d8",
-        barGrid: "#303030",
-        pieFill: "#4A90E2",
-        text: "#FFFFFF",
-      }
-    : {
-        bar: "#8884d8",
-        barGrid: "#E0E0E0",
-        pieFill: "#82ca9d",
-        text: "#000000",
-      };
+  const chartColors = {
+    bar: "#7c6fe0",
+    barGrid: "#2a2a2a",
+    pieFill: "#4A90E2",
+    text: "#a3a3a3",
+    tooltipBg: "#1a1a1a",
+    tooltipBorder: "#333333",
+    tooltipText: "#e5e5e5",
+  };
 
   return (
-    <div className="container h-full w-[100%] bg-gray-100 bg-transparent p-8">
+    <div className="container h-full w-[100%] bg-transparent p-8">
       <Header name="Project Management Dashboard" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+        <div className="rounded-lg bg-[#1a1a1a] p-4 shadow border border-[#262626]">
+          <h3 className="mb-4 text-lg font-semibold text-[#e5e5e5]">
             Task Priority Distribution
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -112,15 +108,18 @@ const HomePage = () => {
                 contentStyle={{
                   width: "min-content",
                   height: "min-content",
+                  backgroundColor: chartColors.tooltipBg,
+                  border: `1px solid ${chartColors.tooltipBorder}`,
+                  color: chartColors.tooltipText,
                 }}
               />
-              <Legend />
+              <Legend wrapperStyle={{ color: "#a3a3a3" }} />
               <Bar dataKey="count" fill={chartColors.bar} />
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+        <div className="rounded-lg bg-[#1a1a1a] p-4 shadow border border-[#262626]">
+          <h3 className="mb-4 text-lg font-semibold text-[#e5e5e5]">
             Project Status
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -133,13 +132,19 @@ const HomePage = () => {
                   />
                 ))}
               </Pie>
-              <Tooltip />
-              <Legend />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: chartColors.tooltipBg,
+                  border: `1px solid ${chartColors.tooltipBorder}`,
+                  color: chartColors.tooltipText,
+                }}
+              />
+              <Legend wrapperStyle={{ color: "#a3a3a3" }} />
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary md:col-span-2">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+        <div className="rounded-lg bg-[#1a1a1a] p-4 shadow border border-[#262626] md:col-span-2">
+          <h3 className="mb-4 text-lg font-semibold text-[#e5e5e5]">
             Your Tasks
           </h3>
           <div style={{ height: 400, width: "100%" }}>
@@ -151,7 +156,7 @@ const HomePage = () => {
               getRowClassName={() => "data-grid-row"}
               getCellClassName={() => "data-grid-cell"}
               className={dataGridClassNames}
-              sx={dataGridSxStyles(isDarkMode)}
+              sx={dataGridSxStyles(true)}
             />
           </div>
         </div>
