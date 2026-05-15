@@ -9,7 +9,7 @@ import {
   Share2,
   Table,
 } from "lucide-react";
-import ModalNewProject from './ModalNewProject/page';
+import ModalNewProject from '../../components/ModalNewProject';
 type Props = {
   activeTab: string;
   setActiveTab: (tabName: string) => void;

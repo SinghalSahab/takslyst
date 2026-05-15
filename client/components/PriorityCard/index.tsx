@@ -2,8 +2,8 @@
 
 import { useAppSelector } from "@/app/redux";
 import Header from "@/components/Header";
-import ModalNewTask from "@/components/ModalNewTask/page"
-import TaskCard from "@/components/TaskCard/page";
+import ModalNewTask from "@/components/ModalNewTask"
+import TaskCard from "@/components/TaskCard";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import {
   Priority,
